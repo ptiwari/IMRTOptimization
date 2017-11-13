@@ -102,16 +102,22 @@ switch upper(command)
             currDir = which('OptimizationModule.m');
             oneUp = fileparts(currDir);
             twoUp = fileparts(oneUp);
-            twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
+            
             if ismac
+                twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
                 amplDir = strcat(twoUp,'/osx');
                 solverDir = strcat(twoUp,'/osx/');
+                cmd = sprintf('%s/ampl <imrt.run\n',amplDir);
             elseif isunix
+               twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
                amplDir = strcat(twoUp,'/linux');
                solverDir = strcat(twoUp,'/linux/');
+               cmd = sprintf('%s/ampl <imrt.run\n',amplDir);
             elseif ispc
-                 amplDir = strcat(twoUp,'/pc');
-                 solverDir = strcat(twoUp,'/pc/');
+                twoUp = strcat(twoUp,'\IMRTOptimization\platforms');
+                 amplDir = strcat(twoUp,'\pc');
+                 solverDir = strcat(twoUp,'\pc\');
+                 cmd = sprintf('%s\ampl <imrt.run\n',amplDir);
             else
                 disp('Platform not supported')
             end
@@ -122,7 +128,7 @@ switch upper(command)
             else
                 solverDir = strcat(solverDir,s{:});
             end
-            cmd = sprintf('%s/ampl <imrt.run\n',amplDir);
+            
             genRunFile(solverDir,s{:});
             catchexec = false;
             [status,cmdout] = system(cmd);
