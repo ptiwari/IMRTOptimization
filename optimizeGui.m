@@ -59,7 +59,7 @@ switch upper(command)
         structsInScanS = planC{indexS.structures}(assocScansV==1);
         strList = {structsInScanS.structureName};
         stateS.optimizeYVal = 90;
-        typeList = {"Min Dose","Max Dose", "Dose Volume","Presc Dose","gEUD"};
+        typeList = {'Min Dose','Max Dose', 'Dose Volume','Presc Dose','gEUD'};
         uicontrol(hFig, 'style', 'pushbutton', 'units', units, 'position', [300 y-400 100 20], 'string', 'Add Organ', 'horizontalAlignment', 'center', 'callback', 'optimizeGui(''ADDGOAL'');');
         uicontrol(hFig, 'style', 'frame', 'units', units, 'position', [10 y-350 620 300]);
         ud.sliderH = uicontrol(hFig, 'style', 'slider', 'units', units, 'position', [620 y-350 15 300],'min',7,'max',max(7+1,length(planC{indexS.structures})),'value',max(7+1,length(planC{indexS.structures})));
@@ -83,7 +83,7 @@ switch upper(command)
         uicontrol(hFig, 'style', 'pushbutton', 'units', units, 'position', [570 y-80 30 18], 'string', '-', 'horizontalAlignment', 'center', 'callback', 'optimizeGui(''ADDGOAL'');');
 
         ud.startButton = uicontrol(hFig, 'style', 'pushbutton', 'units', units, 'position', [530 y-400 100 20], 'string', 'Start Optimization', 'horizontalAlignment', 'center','callback', 'OptimizationModule(''start'');');
-        solverList = {"ipopt","knitro_Direct","knitro_CG","knitro_Active","knitro_SQP"};
+        solverList = {'ipopt','knitro_Direct','knitro_CG','knitro_Active','knitro_SQP'};
         ud.solver =      uicontrol(hFig, 'style', 'popupmenu', 'units', units, 'position', [420 y-400 100 20], 'string', solverList, 'value', 1, 'horizontalAlignment', 'center');
         set(hFig, 'userdata', ud);
         
@@ -95,7 +95,7 @@ switch upper(command)
         [assocScansV, relStructNumV] = getStructureAssociatedScan(1:length(planC{indexS.structures}), planC);
         structsInScanS = planC{indexS.structures}(assocScansV==1);
         strList = {structsInScanS.structureName};
-        typeList = {"Min Dose","Max Dose", "Dose Volume","Presc Dose","gEUD"};
+        typeList = {'Min Dose','Max Dose', 'Dose Volume','Presc Dose','gEUD'};
         ud = get(hFig, 'userdata');
         currPos = length(ud.optimization);
         ud.optimization(currPos+1).organ =      uicontrol(hFig, 'style', 'popupmenu', 'units', units, 'position', [10 y-stateS.optimizeYVal 100 30], 'string', strList, 'value', 1, 'horizontalAlignment', 'center');

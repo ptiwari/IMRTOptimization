@@ -1,10 +1,10 @@
-function genRunFile(solver,selectedSolver)
+function genRunFile(solver,selectedSolver,ud)
 % Generate step1 run file for AMPL
 % 10/23/12 Yao
 
-fidRun = fopen('imrt.run','w');
+fidRun = fopen(ud.rFile,'w');
 fprintf(fidRun,'option solver ''%s'';\n',solver);
-if(contains(solver,'knitro'))
+if(strfind(solver,'knitro'))
      if (strcmp(selectedSolver,'knitro_Direct'))
         fprintf(fidRun,'option knitro_options "alg=1"; \n'); 
      elseif(strcmp(selectedSolver,'knitro_CG'))
@@ -17,8 +17,8 @@ if(contains(solver,'knitro'))
 
 end
 
-fprintf(fidRun,'model imrt.mod;\n');
-fprintf(fidRun,'data imrt.dat;\n');
+fprintf(fidRun,'model %s;\n',ud.mFile);
+fprintf(fidRun,'data %s;\n',ud.dFile);
 
 fprintf(fidRun,'let {k in 1..numbeamlet}w[k] := 1;\n');
 

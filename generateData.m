@@ -21,7 +21,7 @@ for struc = stcIndex
 end
 
 influenceM = getGlobalInfluenceM(planC{indexS.IM}(IMNumber).IMDosimetry, stcIndex);
-fidDat = fopen('inf','w');
+fidDat = fopen(ud.inf,'w');
 [r,c,v] = find(influenceM);
 data_dump = [r,c,v];
 clear r c v;
@@ -31,7 +31,7 @@ clear data_dump;
 fclose(fidDat);
 
 
-fidDat = fopen('imrt.dat','w');
+fidDat = fopen(ud.dFile,'w');
 
 numbeamlet = size(influenceM,2);
 fprintf(fidDat,'param numbeamlet := %d;\n',numbeamlet);

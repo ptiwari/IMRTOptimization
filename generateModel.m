@@ -1,14 +1,10 @@
 function generateModel(ud)
 % Generate step1 model file for AMPL
-% 10/23/12 Yao
 
-fidModel = fopen('imrt.mod','w');
 
-% for i=1:length(ud.optimization)
-%     fprintf(fidModel,'set ');
-%     fprintf(fidModel,'organdata%d',i);
-%     
-% end
+fidModel = fopen(ud.mFile,'w');
+
+
 fprintf(fidModel,'param numOrgans;\n');
 fprintf(fidModel,'param numDose;\n');
 fprintf(fidModel,'param numA;\n');

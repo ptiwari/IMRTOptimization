@@ -96,40 +96,54 @@ switch upper(command)
         try
             set(ud.startButton,'String','Running Optimization','Enable','off');
             drawnow
-            generateModel(ud);
-            generateData(ud);
+            
             s = ud.solver.String(ud.solver.Value);
             currDir = which('OptimizationModule.m');
             oneUp = fileparts(currDir);
             twoUp = fileparts(oneUp);
-            
+            if ispc
+                userdir= getenv('USERPROFILE'); 
+            else
+                userdir= getenv('HOME');
+            end
             if ismac
+                ud.mFile = sprintf('%s/IMRT.mod',userdir);
+                ud.dFile = sprintf('%s/IMRT.dat',userdir);
+                ud.rFile = sprintf('%s/IMRT.run',userdir);
+                ud.inf = sprintf('%s/inf',userdir);
                 twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
                 amplDir = strcat(twoUp,'/osx');
                 solverDir = strcat(twoUp,'/osx/');
-                cmd = sprintf('%s/ampl <imrt.run\n',amplDir);
+                cmd = sprintf('%s/ampl <%s\n',amplDir,ud.rFile);   
             elseif isunix
+               ud.mFile = sprintf('%s/IMRT.mod',userdir);
+               ud.dFile = sprintf('%s/IMRT.dat',userdir);
+               ud.rFile = sprintf('%s/IMRT.run',userdir);
+               ud.inf = sprintf('%s/inf',userdir);
                twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
                amplDir = strcat(twoUp,'/linux');
                solverDir = strcat(twoUp,'/linux/');
-               cmd = sprintf('%s/ampl <imrt.run\n',amplDir);
+               cmd = sprintf('%s/ampl <%s\n',amplDir,ud.rFile);
             elseif ispc
+                ud.mFile = sprintf('%s\\IMRT.mod',userdir);
+                ud.dFile = sprintf('%s\\IMRT.dat',userdir);
+                ud.rFile = sprintf('%s\\IMRT.run',userdir);
+                ud.inf = sprintf('%s\\inf',userdir);
                 twoUp = strcat(twoUp,'\IMRTOptimization\platforms');
-                 amplDir = strcat(twoUp,'\pc');
-                 solverDir = strcat(twoUp,'\pc\');
-                 cmd = sprintf('%s\ampl <imrt.run\n',amplDir);
+                amplDir = strcat(twoUp,'\pc');
+                solverDir = strcat(twoUp,'\pc\');
+                cmd = sprintf('%s\ampl <%s\n',amplDir,ud.rFile);
             else
                 disp('Platform not supported')
             end
-            %amplDir = strcat(twoUp,'/ampl');
-            %solverDir = strcat(twoUp,'/ampl/');
-            if(contains(s{:},'knitro'))
+            if(strfind(s{:},'knitro'))
                 solverDir = strcat(solverDir,'knitro');
             else
                 solverDir = strcat(solverDir,s{:});
             end
-            
-            genRunFile(solverDir,s{:});
+            generateModel(ud);
+            generateData(ud);
+            genRunFile(solverDir,s{:},ud);
             catchexec = false;
             [status,cmdout] = system(cmd);
             msgbox('Optimization Completed','Information','modal');
