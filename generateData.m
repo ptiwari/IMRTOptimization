@@ -125,6 +125,6 @@ for i = 1:length(ud.optimization)
     fprintf(fidDat,';\n');
 end
 
-fprintf(fidDat,'param: Indices: influenceM := include inf;\n');   
+fprintf(fidDat,'param: Indices: influenceM := include %s;\n',ud.inf);   
 
 fclose(fidDat);
