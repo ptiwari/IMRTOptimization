@@ -1,4 +1,4 @@
-function saveSol()
+function saveSol(ud)
 % Save step 4 solution
 % 10/24/12 Yao
 
@@ -6,7 +6,7 @@ global planC
 indexS = planC{end};
 IMNumber = size(planC{indexS.IM},2);
 
-fid = fopen('result');
+fid = fopen(ud.result);
 w = fscanf(fid,'%f ');
 
 IM = planC{indexS.IM}(IMNumber).IMDosimetry;

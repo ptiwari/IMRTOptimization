@@ -111,6 +111,7 @@ switch upper(command)
                 ud.dFile = sprintf('%s/IMRT.dat',userdir);
                 ud.rFile = sprintf('%s/IMRT.run',userdir);
                 ud.inf = sprintf('%s/inf',userdir);
+                ud.result = sprintf('%s/result',userdir);
                 twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
                 amplDir = strcat(twoUp,'/osx');
                 solverDir = strcat(twoUp,'/osx/');
@@ -120,6 +121,7 @@ switch upper(command)
                ud.dFile = sprintf('%s/IMRT.dat',userdir);
                ud.rFile = sprintf('%s/IMRT.run',userdir);
                ud.inf = sprintf('%s/inf',userdir);
+               ud.result = sprintf('%s/result',userdir);
                twoUp = strcat(twoUp,'/IMRTOptimization/platforms');
                amplDir = strcat(twoUp,'/linux');
                solverDir = strcat(twoUp,'/linux/');
@@ -129,10 +131,11 @@ switch upper(command)
                 ud.dFile = sprintf('%s\\IMRT.dat',userdir);
                 ud.rFile = sprintf('%s\\IMRT.run',userdir);
                 ud.inf = sprintf('%s\\inf',userdir);
+                ud.result = sprintf('%s\\result',userdir);
                 twoUp = strcat(twoUp,'\IMRTOptimization\platforms');
                 amplDir = strcat(twoUp,'\pc');
                 solverDir = strcat(twoUp,'\pc\');
-                cmd = sprintf('%s\ampl <%s\n',amplDir,ud.rFile);
+                cmd = sprintf('%s\\ampl <%s\n',amplDir,ud.rFile);
             else
                 disp('Platform not supported')
             end
@@ -155,7 +158,7 @@ switch upper(command)
             catchexec = true;
         end
         if (~catchexec)
-            saveSol();
+            saveSol(ud);
         end
         
         

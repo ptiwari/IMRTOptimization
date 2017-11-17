@@ -23,5 +23,5 @@ fprintf(fidRun,'data %s;\n',ud.dFile);
 fprintf(fidRun,'let {k in 1..numbeamlet}w[k] := 1;\n');
 
 fprintf(fidRun,'solve;\n');
-fprintf(fidRun,'printf {k in 1..numbeamlet}: \"%%f \",w[k] >result;\n');
+fprintf(fidRun,'printf {k in 1..numbeamlet}: \"%%f \",w[k] >%s;\n',ud.result);
 fclose(fidRun);
