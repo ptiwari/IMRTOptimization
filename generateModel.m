@@ -35,7 +35,7 @@ for i=1:length(ud.optimization)
             case 5
                 fprintf(fidModel,'weight[%d]* (1/card(V[%d])* (sum{j in V[%d]} (sum{(j,k) in Indices} (influenceM[j,k]*w[k])^a[%d]))^(1/a[%d]))',i,i,i,i,i);
         end
-        if(i ~= length(ud.optimization))
+        if(i ~= length(ud.optimization) && ~ud.optimization(i+1).constraint.Value)
             fprintf(fidModel,' +');
         end
     end
