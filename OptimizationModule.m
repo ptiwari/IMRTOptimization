@@ -132,7 +132,7 @@ switch upper(command)
                 twoUp = strcat(twoUp,'\IMRTOptimization\platforms');
                 amplDir = strcat(twoUp,'\pc');
                 solverDir = strcat(twoUp,'\pc\');
-                cmd = sprintf('%s\ampl <%s\n',amplDir,ud.rFile);
+                cmd = sprintf('%s\\ampl <%s\n',amplDir,ud.rFile);
             else
                 disp('Platform not supported')
             end
