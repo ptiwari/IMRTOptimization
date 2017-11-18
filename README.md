@@ -8,14 +8,11 @@ Operating System: Windows 64 bit, Linux 64 bit, Mac OSX
 
 
 **Quick Start**
-1.	Create a CERR plan
-a.	Refer http://cerr.info/wiki/index.php/Install_instructions?w=CERRWiKi to download and install CERR
-b.	Download sample data from 
-i.	H&N: http://cerr.info/files/head_neck_ex1_20may03.mat.bz2
-ii.	Prostate: http://cerr.info/files/prostex_9may03.mat.bz2
-iii.	Lung: http://cerr.info/files/lung_ex1_20may03.mat.bz2
+1.	Create a CERR plan 
+  *	Refer http://cerr.info/wiki/index.php/Install_instructions?w=CERRWiKi to download and install CERR
+*	Download sample data from 	H&N: http://cerr.info/files/head_neck_ex1_20may03.mat.bz2 ,Prostate: http://cerr.info/files/prostex_9may03.mat.bz2, Lung: http://cerr.info/files/lung_ex1_20may03.mat.bz2
 c.	Create CERR plan. Refer http://cerr.info/wiki/index.php/CERR?w=CERRWiKi#DICOM_Import.2C_which_is_DICOMJ for creating CERR plan from DICOM file.
-d.	Compute the Dose using CERR. Refer http://cerr.info/wiki/index.php/CERR?w=CERRWiKi#IMRTP for CERR IMRTP GUI.
+*	Compute the Dose using CERR. Refer http://cerr.info/wiki/index.php/CERR?w=CERRWiKi#IMRTP for CERR IMRTP GUI.
 2.	After Calculating Dose in CERR, click on IMRT>>Optimize to open Optimization GUI.
 
 Figure 1: Optimization GUI displayed from IMRT>>Optimize
