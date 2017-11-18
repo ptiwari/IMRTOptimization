@@ -18,7 +18,6 @@ c.	Create CERR plan. Refer http://cerr.info/wiki/index.php/CERR?w=CERRWiKi#DICOM
 Figure 1: Optimization GUI displayed from IMRT>>Optimize
  ![Screenshot](figure1.png)
 3.	Select organ and objective for the organ. 
-Figure 2: Selecting organs and objectives. The user need to provide the weight of each objective. The sum of all weights must be equal to one. The system supports Minimum Dose, Maximum Dose, Prescription Dose, Dose Volume, and gEUD as objectives or constraints. The goal can be turned into constraints by selecting constraint checkbox. If an objective can’t be used as a constraint, the constraint checkbox is disabled for the objective. 
 
 Figure 2: Selecting organs and objectives. The user need to provide the weight of each objective. The sum of all weights must be equal to one. The system supports Minimum Dose, Maximum Dose, Prescription Dose, Dose Volume, and gEUD as objectives or constraints. The goal can be turned into constraints by selecting constraint checkbox. If an objective can’t be used as a constraint, the constraint checkbox is disabled for the objective. 
 
