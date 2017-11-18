@@ -18,11 +18,15 @@ d.	Compute the Dose using CERR. Refer http://cerr.info/wiki/index.php/CERR?w=CER
 2.	After Calculating Dose in CERR, click on IMRT>>Optimize to open Optimization GUI.
 
 Figure 1: Optimization GUI displayed from IMRT>>Optimize
- 
+ ![Screenshot](figure1.png)
 3.	Select organ and objective for the organ. 
 Figure 2: Selecting organs and objectives. The user need to provide the weight of each objective. The sum of all weights must be equal to one. The system supports Minimum Dose, Maximum Dose, Prescription Dose, Dose Volume, and gEUD as objectives or constraints. The goal can be turned into constraints by selecting constraint checkbox. If an objective can’t be used as a constraint, the constraint checkbox is disabled for the objective. 
 
+Figure 2: Selecting organs and objectives. The user need to provide the weight of each objective. The sum of all weights must be equal to one. The system supports Minimum Dose, Maximum Dose, Prescription Dose, Dose Volume, and gEUD as objectives or constraints. The goal can be turned into constraints by selecting constraint checkbox. If an objective can’t be used as a constraint, the constraint checkbox is disabled for the objective. 
+
+![Screenshot](figure2.jpg)
 4.	Select a Solver. The system provides IPOPT and Knitro. IPOPT uses the interior point method to solve the optimization problem. Knitro provides four different algorithms to solve the problem. Refer https://www.artelys.com/tools/knitro_doc/2_userGuide/algorithms.html to understand more about the algorithm. Below is the brief description about each algorithm
+![Screenshot](figure3.png)
 a.	Knitro_Direct (Interior/Direct algorithm): computes new iterates by solving the primal-dual KKT matrix using direct linear algebra.
 b.	Knitro_CG(Interior/CG algorithm): Primal-dual KKT system is solved using a projected conjugate gradient iteration.
 c.	Knitro_Active(Active Set algorithm): Solve a sequence of subproblems based on a quadratic model of the original problem.
