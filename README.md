@@ -5,8 +5,9 @@ System Requirement: Matlab 2015 or later
 Operating System: Windows 64 bit, Linux 64 bit, Mac OSX
 1.  Perform git pull in your CERR directory from CERR git repository https://github.com/cerr/CERR.git.
 	If you have downloaded CERR, make sure you have the latest version.
-2.	Perform git clone https://github.com/ptiwari/IMRTOptimization.git
-3.	Open Matlab and add IMRTOptimization folder in the Matlab Path. The IMRTOptimization module is tested in Matlab 2015 and later release. 
+2.  Make sure CERR is in the Matlab path. You need to add CERR in the Matlab path before adding IMRTOptimization. If you add CERR after IMRTOptimization in Matlab path, then the system might not work.
+3.	Perform git clone https://github.com/ptiwari/IMRTOptimization.git
+4.	Open Matlab and add IMRTOptimization folder in the Matlab Path. The IMRTOptimization module is tested in Matlab 2015 and later release. 
 
 **Quick Start**
 1.	Create a CERR plan 
