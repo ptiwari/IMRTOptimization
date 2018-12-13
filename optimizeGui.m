@@ -83,7 +83,7 @@ switch upper(command)
         uicontrol(hFig, 'style', 'pushbutton', 'units', units, 'position', [570 y-80 30 18], 'string', '-', 'horizontalAlignment', 'center', 'callback', 'optimizeGui(''ADDGOAL'');');
 
         ud.startButton = uicontrol(hFig, 'style', 'pushbutton', 'units', units, 'position', [530 y-400 100 20], 'string', 'Start Optimization', 'horizontalAlignment', 'center','callback', 'OptimizationModule(''start'');');
-        solverList = {'ipopt','knitro_Direct','knitro_CG','knitro_Active','knitro_SQP'};
+        solverList = {'ipopt'};
         ud.solver =      uicontrol(hFig, 'style', 'popupmenu', 'units', units, 'position', [420 y-400 100 20], 'string', solverList, 'value', 1, 'horizontalAlignment', 'center');
         set(hFig, 'userdata', ud);
         
